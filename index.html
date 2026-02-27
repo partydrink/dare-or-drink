@@ -84,15 +84,30 @@ html, body {
 .splash-title {
   font-family: 'Bebas Neue', cursive;
   font-size: clamp(72px, 22vw, 96px);
-  line-height: 0.88;
-  letter-spacing: 6px;
-  color: transparent;
-  -webkit-text-stroke: 2.5px var(--neon);
-  text-shadow: 0 0 8px var(--neon), 0 0 20px var(--neon-glow), 0 0 50px rgba(232,0,61,0.3);
+  line-height: 0.9;
+  letter-spacing: 8px;
+  color: var(--neon);
+  text-shadow: 
+    0 0 12px rgba(232,0,61,0.9),
+    0 0 30px rgba(232,0,61,0.6),
+    0 0 60px rgba(232,0,61,0.3);
   position: relative;
   z-index: 1;
 }
 
+  /* Thin neon divider */
+.splash-divider {
+  display: block;
+  width: 60%;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.6) 70%, transparent);
+  box-shadow: 0 0 6px rgba(255,255,255,0.4);
+  margin: 4px auto;
+  position: relative;
+  z-index: 1;
+}
+  
 .splash-sub {
   font-size: 11px;
   font-weight: 800;
