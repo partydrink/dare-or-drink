@@ -1109,7 +1109,7 @@ function renderScoreboard() {
   rows.innerHTML = state.players.map((p, i) => `
     <div class="score-row ${i === state.playerIdx ? 'current' : ''}">
       <div class="score-name">
-        ${i === state.playerIdx ? '<span class="score-arrow">▶</span>' : ''}
+        ${i === state.playerIdx ? '<span class="score-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1L9 5L5 9L1 5L5 1Z" stroke="#e8003d" stroke-width="1.2" fill="rgba(232,0,61,0.3)"/></svg></span>' : '<span style="width:16px;display:inline-block"></span>'}
         ${p}
       </div>
       <div class="score-num d">${state.scores[p].drinks}</div>
