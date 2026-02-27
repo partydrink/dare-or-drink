@@ -1398,7 +1398,49 @@ function confirmEndGame() {
   `;
   document.body.appendChild(overlay);
 }
+  
+// ══ ACCESS CODE LOGIC ══
+// FORMAT: 'CODE': 'YYYY-MM-DD' (expiry date)
+// Add new codes here — each buyer gets a unique code
+const CODES = {
+  'PARTY2025':  '2025-03-28',
+  'DRINKUP':    '2025-03-28',
+  'NEONNIGHT':  '2025-03-28',
+  'DARE4FUN':   '2025-03-28',
+  'SHOTS123':   '2025-03-28',
+};
 
+function checkCode() {
+  const input = document.getElementById('accessInput').value.trim().toUpperCase();
+  const errorEl = document.getElementById('accessError');
+  
+  if (CODES[input]) {
+    const expiry = new Date(CODES[input]);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    
+    if (today <= expiry) {
+      sessionStorage.setItem('dod_access', '1');
+      showScreen('splashScreen');
+    } else {
+      errorEl.textContent = 'CODE EXPIRED — GET A NEW ONE';
+      const inp = document.getElementById('accessInput');
+      inp.classList.add('error');
+      setTimeout(() => { inp.classList.remove('error'); errorEl.textContent = ''; }, 2000);
+    }
+  } else {
+    errorEl.textContent = 'INVALID CODE — TRY AGAIN';
+    const inp = document.getElementById('accessInput');
+    inp.classList.add('error');
+    setTimeout(() => { inp.classList.remove('error'); errorEl.textContent = ''; }, 1500);
+  }
+}
+
+// Skip code screen if already unlocked this session
+if (sessionStorage.getItem('dod_access') === '1') {
+  showScreen('splashScreen');
+}
+  
 </script>
 
 </body>
