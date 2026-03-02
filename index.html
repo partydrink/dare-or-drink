@@ -924,11 +924,7 @@ input[type="text"]::placeholder { color: var(--border); }
       <div class="round-opt active" data-rounds="5" onclick="selectRounds(this)">5<small>Normal</small></div>
       <div class="round-opt" data-rounds="10" onclick="selectRounds(this)">10<small>Wild</small></div>
       <div class="round-opt" data-rounds="999" onclick="selectRounds(this)">∞<small>∞</small></div>
-      <div class="round-opt" data-rounds="custom" onclick="selectRounds(this)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:middle"><path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        <small>Own</small>
-      </div>
-    </div>
+         </div>
     <div id="customRoundWrap">
       <input type="number" id="customRoundInput" min="1" max="999" placeholder="?" oninput="updateCustomRounds()">
     </div>
@@ -1245,7 +1241,7 @@ function cardAction(completed) {
 
 function nextCard() {
   if (!state.ready) return;
-  advanceTurn();
+  loadCard();
 }
 
 function advanceTurn() {
